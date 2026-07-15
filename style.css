@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
-    margin:0;
+    margin-left: auto;
+    margin-right: auto;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
@@ -125,7 +126,7 @@ nav a:hover{
 
 .card{
     background:#fff;
-    padding:25px;
+    padding:10px;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
     transition:.3s;
@@ -168,13 +169,21 @@ button:hover{
 
 /* Footer */
 footer{
-    background:#111827;
+    background:#00040D;
     color:#fff;
     text-align:center;
-    padding:20px;
+    padding:8px;
     margin-top:40px;
+    margin-bottom:60px;
 }
 
+.footer::after {
+    content: "© 2026 GEAR. All Rights Reserved.";
+    display: block;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
 /* Responsive */
 @media(max-width:768px){
 
