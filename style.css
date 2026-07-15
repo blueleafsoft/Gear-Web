@@ -64,6 +64,9 @@ header{
 .content ul {
     padding-left: 24px;
 }
+.content ol {
+				padding-left: 24px;
+}
 
 .content li {
     margin-bottom: 2px;
@@ -121,23 +124,29 @@ nav a:hover{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:25px;
-    padding:60px 10%;
+    padding:30px 10%;
 }
 
 .card{
     background:#fff;
-    padding:10px;
+    padding:5px;
     border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:0 5px 5px rgba(0,0,0,.08);
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-8px);
 }
+.card dl{
+	padding: 10px;
+}
+.card dt {
+    font-size: 14px;
+}
 
 .card h3{
-    margin-bottom:10px;
+    margin-bottom:0px;
 }
 
 /* Contact */
