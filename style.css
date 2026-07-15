@@ -10,9 +10,57 @@
 }
 
 body{
-    background:#f4f7fb;
-    color:#333;
+    background-color: var(--md-sys-color-background);
+  		color: var(--md-sys-color-on-background);
 }
+.app-item-container {
+  display: flex;
+  flex-direction: column; /* Icon mela, text keela */
+  align-items: center;    
+  justify-content: center;
+  margin-top: 20px;
+  width: 80px;            
+  /* Gap already 8px irukura nala, margin separate ah thevai illa */
+  text-decoration: none;  
+  cursor: pointer;
+}
+
+/* Selector select pannum podhu h1 element match aaguranu dynamic check */
+.app-item-container h1 {
+  margin-top: 5px;
+  font-size: 24px; /* 24px icon sized box standard container ku romba perusa irukum, so 14px-16px is best */
+  font-weight: bold;
+  /* Make sure unga color value set path visible */
+  text-align: center;
+}
+
+.app-icon {
+  background-image: url('logo.png'); /* Unga app icon path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+  /* M3 Standard Component Dimensions */
+  width: 80px;  
+  height: 80px;
+  
+  /* M3 Adaptive Icon Shape - Custom Rounded Corners */
+  border-radius: 16px; 
+  
+  /* Subtle Elevation shadow dynamic logic */
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode setup (M3 color matching strategy) */
+@media (prefers-color-scheme: dark) {
+  .brand-logo {
+    /* Bright background light theme logos dark theme la eye-strain custom controls setup standard shift alternative black icon settings code value setup rules */
+    background-image: url('assets/logo-dark-mode.svg'); 
+  }
+}
+
+
+
 
 /* Header */
 header{
@@ -40,7 +88,7 @@ header{
 }
 
 .logo-container h1 {
-    margin-top: 6px;
+    margin-top: 0px;
     margin-bottom:10px;
     font-size: 24px;
     font-weight: bold;
@@ -149,6 +197,15 @@ nav a:hover{
     margin-bottom:0px;
 }
 
+
+.m3-card-outlined {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--md-sys-color-outline);
+}
+
 /* Contact */
 .contact{
     padding:60px 10%;
@@ -178,7 +235,7 @@ button:hover{
 
 /* Footer */
 footer{
-    background:#00040D;
+    background: var(--md-sys-color-surface-variant);
     color:#fff;
     text-align:center;
     padding:8px;
@@ -190,7 +247,7 @@ footer{
     content: "© 2026 GEAR. All Rights Reserved.";
     display: block;
     text-align: center;
-    color: #777;
+    color: var(--md-sys-color-on-surface-variant);
     font-size: 14px;
 }
 /* Responsive */
@@ -213,11 +270,25 @@ footer{
         font-size:36px;
     }
 }
+/* Universal Anchor Link properties logic */
+a, 
+a:visited {
+  /* Heavy browser default dark blue replacement */
+  color: var(--md-sys-color-primary); 
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover or Active interaction mapping properties */
+a:hover, 
+a:focus {
+  color: var(--md-sys-color-primary-container);
+  opacity: 0.85; /* Subtle micro interaction shift */
+}
 
 
 
-
-.light {
+:root {
   --md-sys-color-primary: #194876;
   --md-sys-color-on-primary: #FFFFFF;
   --md-sys-color-primary-container: #D0E8FF;
@@ -268,7 +339,8 @@ footer{
   --md-sys-color-shadow: #000000;
 }
 
-.dark {
+@media (prefers-color-scheme: dark) {
+  :root {
   --md-sys-color-primary: #CBE5FF;
   --md-sys-color-on-primary: #244769;
   --md-sys-color-primary-container: #40668C;
@@ -317,7 +389,7 @@ footer{
   --md-sys-color-surface-container-highest: #3F454B;
   --md-sys-color-scrim: #000000;
   --md-sys-color-shadow: #000000;
+ }
 }
-
 
 
