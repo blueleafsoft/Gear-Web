@@ -205,6 +205,22 @@ nav a:hover{
   padding: 16px;
   border: 1px solid var(--md-sys-color-outline);
 }
+.features{
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    padding-bottom:10px;
+    scroll-behavior:smooth;
+}
+
+.features::-webkit-scrollbar{
+    height:8px;
+}
+
+.features::-webkit-scrollbar-thumb{
+    background:#1565C0;
+    border-radius:20px;
+}
 
 /* Contact */
 .contact{
@@ -224,6 +240,7 @@ button{
     background:#2563eb;
     color:#fff;
     border:none;
+    margin-top:40px;
     padding:12px 24px;
     border-radius:8px;
     cursor:pointer;
@@ -231,6 +248,26 @@ button{
 
 button:hover{
     background:#1d4ed8;
+}
+
+.button a{
+    text-decoration:none;
+    background:#fff;
+    color:#1565C0;
+    border:2px solid #1565C0;
+    padding:12px 24px;
+    border-radius:30px;
+    font-weight:bold;
+}
+.play-btn{
+    display:block;
+    margin-top:30px;
+    background: var(--md-sys-color-primary);
+  		color: var(--md-sys-color-on-primary);
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:bold;
 }
 
 /* Footer */
