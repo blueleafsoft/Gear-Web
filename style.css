@@ -38,7 +38,7 @@ body {
 }
 
 .app-icon {
-    background-image: url('logo.png');
+    background-image: url('logo.svg');
     /* Unga app icon path */
     background-repeat: no-repeat;
     background-position: center;
