@@ -1,11 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "blueleaf.soft.gear",
-      "sha256_cert_fingerprints":
-        ["A0:D5:D1:4B:D2:57:7B:EB:96:40:95:46:C8:16:F9:13:2F:8C:B7:C0:23:7C:FF:E6:32:BE:39:09:41:66:8B:FB"]
+      "sha256_cert_fingerprints": [
+        "A0:D5:D1:4B:D2:57:7B:EB:96:40:95:46:C8:16:F9:13:2F:8C:B7:C0:23:7C:FF:E6:32:BE:39:09:41:66:8B:FB"
+      ]
     }
   }
 ]
