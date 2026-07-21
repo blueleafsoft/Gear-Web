@@ -1,6 +1,17 @@
-const STRINGS = {
-  APP_NAME: "GEAR",
-  CONTACT_EMAIL: "@gearapp.in",
-  PRIVACY_TITLE: "Privacy Policy",
-  TERMS_TITLE: "Terms & Conditions"
-};
+{
+  "app": {
+    "name": "GEAR"
+  },
+  "contact": {
+    "email": "support@gearapp.in"
+  },
+  "links": {
+    "privacy": "privacy.html",
+    "privacyText": "Privacy Policy",
+    "terms": "terms.html",
+    "termsText": "Terms & Conditions"
+  },
+  "footer": {
+    "copyright": "© 2026 GEAR. All rights reserved."
+  }
+}
