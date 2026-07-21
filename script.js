@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Contact Email
             const email = document.getElementById("contactEmail");
             if (email) {
-                email.textContent = data.contact.email;
+                email.textContent =   data.contact.email;
                 email.href = "mailto:" + data.contact.email;
             }
 

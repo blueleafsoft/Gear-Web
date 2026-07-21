@@ -3,12 +3,12 @@
     "name": "GEAR"
   },
   "contact": {
-    "email": "support@gearapp.in"
+    "email": "help@gearapp.in"
   },
   "links": {
-    "privacy": "privacy.html",
+    "privacy": "privacy-policy.html",
     "privacyText": "Privacy Policy",
-    "terms": "terms.html",
+    "terms": "terms-of-services.html",
     "termsText": "Terms & Conditions"
   },
   "footer": {
