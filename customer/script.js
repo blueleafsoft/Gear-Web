@@ -8,8 +8,8 @@ const snap = await getDoc(ref);
 
 if (snap.exists()) {
     const data = snap.data();
-    document.getElementById("customer_name").textContent = data.name;
-    document.getElementById("customer_address").textContent = data.address;
+    document.getElementById("customer_name").textContent = data.Name;
+    document.getElementById("customer_address").textContent = data.Address;
 } else {
     document.getElementById("customer_name").textContent = "Customer not found";
 }
