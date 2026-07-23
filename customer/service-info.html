@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Service Info</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+ 
+ 
+ 
+ 	<div class="title-bar">
+  	<div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
+  			<div class="vertical" style="flex: 4; padding-left: 10px;">
+  					<p style="font-size: 16px;" id="customerName" > Balakrishnan </p>
+  					<p id="customerAddress">Vadugapalayam</p>
+  			</div>
+   		
+  			<div class="vertical" style="flex: 1;">
+  					<div class="credit-text" style="font-size: 18px;" id="creditText"></div>
+  						<div class="balance-text" style="font-size: 18px;" id="balanceText"></div>
+  			</div>
+		</div>
+		</div>
+  	
+  	<div class="title-bar">
+  			<h4>Spares And Service</h4>
+  	</div>
+  	
+  	<div class="adapter" style="margin-bottom: 10px;">
+  	   <div class="horizontal">
+            <div class="left-bar"></div>
+            <div class="icon">
+                <span class="material-icons" style="font-size: 42px; margin: 0px;">directions_car</span>
+            </div>
+            <div class="vertical">
+                <h4 id="desc"/>
+                <p id="date"/>
+            </div>
+            <div class="amount">
+                <p id="bill"></p>
+            </div>
+        </div>
+ </div>
+ 
+    <div id="serviceList"></div>
+   
+  
+    
+     <script src="script.js"></script>
+  </body>
+</html>
