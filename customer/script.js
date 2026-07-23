@@ -54,6 +54,7 @@ async function getVehicle(customerId) {
 
         const vehicleRef = collection(db, "Customers", customerId, "Workshop");
         const vehicleSnap = await getDocs(vehicleRef);
+        alert(vehicleSnap.size);
 
         vehicleSnap.forEach((doc) => {
             const item = doc.data();
