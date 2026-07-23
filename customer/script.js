@@ -1,5 +1,5 @@
 import { db } from "../firebase.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+import { doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 async function getuser(customer) {
     const uid = customer.User_Id;
