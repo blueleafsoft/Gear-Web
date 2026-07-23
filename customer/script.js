@@ -3,13 +3,16 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.16.0/firebase
 
 async function getuser(customer) {
     const uid = customer.User_Id;
-
+alert(JSON.stringify(customer));
     const ref = doc(db, "users", uid);
     const snap = await getDoc(ref);
 
     if (snap.exists()) {
         const user = snap.data();
 
+alert(JSON.stringify(user));
+
+						
         document.getElementById("garageName").textContent = user.name || "";
         document.getElementById("garageDesc").textContent = user.user_description || "";
 
