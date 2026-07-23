@@ -296,7 +296,7 @@ button:hover {
     gap:5px;
 }
 .adapter{
-    background:#1f1f1f;
+    background: var(--md-sys-color-surface-container-high);
     color:white;
     padding: 0px;
     overflow:hidden;
@@ -341,8 +341,8 @@ button:hover {
 }
 
 .title-bar{ 
-			background:#1f1f1f;
-   color:white;
+			background: var(--md-sys-color-surface-container);
+   color: var(--md-sys-color-primary);
    
    overflow:hidden;
    border-radius: 6px;
@@ -360,8 +360,8 @@ button:hover {
 			width:48px;
    height:48px;
    
-    background:#2b2b2b;
-    color:#fff;
+    background: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -378,9 +378,9 @@ button:hover {
     align-items:center;
     justify-content:center;
 
-    background:#2b2b2b;
-    color:#fff;
-
+    background: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    
     border-radius:8px;   /* 0 = perfect square */
 }
 
