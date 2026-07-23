@@ -7,6 +7,7 @@ async function getCustomerDetails() {
 
     if (!token) {
         console.error("Token Not Found");
+        alter("invalid Token");
         return;
     }
 
