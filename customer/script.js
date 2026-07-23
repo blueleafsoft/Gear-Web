@@ -50,60 +50,55 @@ const vehicleList = document.getElementById("vehicleList");
 
 async function getVehicle(customerId) {
     try {
+        const vehicleList = document.getElementById("vehicleList");
+
         const vehicleRef = collection(db, "Customers", customerId, "Workshop");
         const vehicleSnap = await getDocs(vehicleRef);
 
-     vehicleSnap.forEach((doc) => {
+        vehicleSnap.forEach((doc) => {
             const item = doc.data();
-            console.log(vehicle);
-            
-          let bill = item.Bill_Amount || 0;
-    						let pay = item. Payment_Amount || 0;
-   				 		let credit = bill - pay;
-    						let balance = pay - bill;
-    						let isCredit = bill > pay;
-       			 				
-    						let htmlContent = isCredit 
-       			 ? `<p class="credit-text">Credit : ₹${credit}</p>` 
-        			: `<p class="balance-text">Balance : ₹${balance}</p>`;
+            console.log(item);
+            alert(JSON.stringify(item, null, 2));
 
-    				// Card div create panroam
-    					const card = document.createElement("div");
-    					card.className = "adapter";
-    
-    				card.innerHTML = `
-       	 <div class="horizontal">
-            <div class="left-bar"></div>
-            <div class="icon">
-                <span class="material-icons" style="font-size: 42px;">directions_car</span>
-            </div>
-            <div class="vertical">
-                <h4>${item.Brand}</h4>
-                <p>${item.Model}</p>
-                ${htmlContent}
-            </div>
-            <div class="amount">
-                <p>${item.Bill_Amount}</p>
-            </div>
-        </div>`;
+            let bill = item.Bill_Amount || 0;
+            let pay = item.Payment_Amount || 0;
 
-   			 // Click event handler add panroam
-    			card.addEventListener("click", () => {
-        console.log("Selected Item:", item.Brand);
-        // Adutha page-ku poga or modal open panna code inga ezhudhalam:
-        // window.location.href = `/details.html?id=${item.name}`;
-    	  });
+            let credit = bill - pay;
+            let balance = pay - bill;
+            let isCredit = bill > pay;
 
-    			vehicleList.appendChild(card);
+            let htmlContent = isCredit
+                ? `<p class="credit-text">Credit : ₹${credit}</p>`
+                : `<p class="balance-text">Balance : ₹${balance}</p>`;
 
-            // HTML-ல் add பண்ணலாம்
-            // vehicle.brand
-            // vehicle.model
-            // vehicle.vehicle_number
-          });
+            const card = document.createElement("div");
+            card.className = "adapter";
 
-   } catch (error) {
+            card.innerHTML = `
+                <div class="horizontal">
+                    <div class="left-bar"></div>
+                    <div class="icon">
+                        <span class="material-icons" style="font-size:42px;">directions_car</span>
+                    </div>
+                    <div class="vertical">
+                        <h4>${item.Brand}</h4>
+                        <p>${item.Model}</p>
+                        ${htmlContent}
+                    </div>
+                    <div class="amount">
+                        <p>₹${bill}</p>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener("click", () => {
+                console.log("Selected Item:", item.Brand);
+            });
+
+            vehicleList.appendChild(card);
+        });
+
+    } catch (error) {
         console.error("Error fetching vehicles:", error);
     }
 }
-						
