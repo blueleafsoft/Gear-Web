@@ -11,8 +11,12 @@ async function getuser(datasnapshot) {
         
         if (snap.exists()) {
           const data = snap.data();
+          
+          document.getElementById("garageName").textContent = data.name || "";
+          document.getElementById("garageDesc").textContent =  || "";
+          
             
-          document.getElementById("customerName").textContent = customer .Name || "Name Not Found";
+          document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
           document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
             
         }
