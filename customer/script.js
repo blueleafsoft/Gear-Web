@@ -16,7 +16,7 @@ if (snap.exists()) {
     document.getElementById("customerName").textContent = data.Name;
     document.getElementById("customerAddress").textContent = data.Address;
     
-    uid = data.User_Id;
+   const uid = data.User_Id;
     
     
     
