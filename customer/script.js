@@ -3,15 +3,13 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.16.0/firebase
 
 async function getuser(customer) {
     const uid = customer.User_Id;
-alert(JSON.stringify(customer));
+    //alert(JSON.stringify(customer));
     const ref = doc(db, "users", uid);
     const snap = await getDoc(ref);
 
     if (snap.exists()) {
         const user = snap.data();
-
-alert(JSON.stringify(user));
-
+					//alert(JSON.stringify(user));
 						
         document.getElementById("garageName").textContent = user.name || "";
         document.getElementById("garageDesc").textContent = user.user_description || "";
@@ -47,22 +45,64 @@ async function getCustomerDetails() {
 
 getCustomerDetails();
 
+const vehicleList = document.getElementById("vehicleList");
+
+
 async function getVehicle(customerId) {
     try {
         const vehicleRef = collection(db, "Customers", customerId, "Workshop");
         const vehicleSnap = await getDocs(vehicleRef);
 
-        vehicleSnap.forEach((doc) => {
-            const vehicle = doc.data();
+     vehicleSnap.forEach((doc) => {
+            const item = doc.data();
             console.log(vehicle);
+            
+          let bill = item.Bill_Amount || 0;
+    						let pay = item. Payment_Amount || 0;
+   				 		let credit = bill - pay;
+    						let balance = pay - bill;
+    						let isCredit = bill > pay;
+       			 				
+    						let htmlContent = isCredit 
+       			 ? `<p class="credit-text">Credit : ₹${credit}</p>` 
+        			: `<p class="balance-text">Balance : ₹${balance}</p>`;
+
+    				// Card div create panroam
+    					const card = document.createElement("div");
+    					card.className = "adapter";
+    
+    				card.innerHTML = `
+       	 <div class="horizontal">
+            <div class="left-bar"></div>
+            <div class="icon">
+                <span class="material-icons" style="font-size: 42px;">directions_car</span>
+            </div>
+            <div class="vertical">
+                <h4>${item.Brand}</h4>
+                <p>${item.Model}</p>
+                ${htmlContent}
+            </div>
+            <div class="amount">
+                <p>${item.Bill_Amount}</p>
+            </div>
+        </div>`;
+
+   			 // Click event handler add panroam
+    			card.addEventListener("click", () => {
+        console.log("Selected Item:", item.Brand);
+        // Adutha page-ku poga or modal open panna code inga ezhudhalam:
+        // window.location.href = `/details.html?id=${item.name}`;
+    	  });
+
+    			vehicleList.appendChild(card);
 
             // HTML-ல் add பண்ணலாம்
             // vehicle.brand
             // vehicle.model
             // vehicle.vehicle_number
-        });
+          });
 
-    } catch (error) {
+   } catch (error) {
         console.error("Error fetching vehicles:", error);
     }
 }
