@@ -32,7 +32,7 @@ async function getCustomerDetails() {
         const snap = await getDoc(ref);
         
         if (snap.exists()) {
-    					 await getuser(snap);
+    					 await Promise.all([getuser(snap),getVehicle(token)]);
 								} else {
           document.getElementById("customerName").textContent = "Customer Not Found";
           document.getElementById("customerAddress").textContent = "";
@@ -43,4 +43,24 @@ async function getCustomerDetails() {
 }
 
 getCustomerDetails();
+
+async function getVehicle(customerId) {
+    try {
+        const vehicleRef = collection(db, "Customers", customerId, "Workshop");
+        const vehicleSnap = await getDocs(vehicleRef);
+
+        vehicleSnap.forEach((doc) => {
+            const vehicle = doc.data();
+            console.log(vehicle);
+
+            // HTML-ல் add பண்ணலாம்
+            // vehicle.brand
+            // vehicle.model
+            // vehicle.vehicle_number
+        });
+
+    } catch (error) {
+        console.error("Error fetching vehicles:", error);
+    }
+}
 						
