@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEAR - Service Details</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/png" href="../logo.png">
+    <title>Customer Service Details</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
-
-
-    <div class="content">
-      <div class="m3-card-outlined">
-        <p id="customer_name">Loading..</p>
-        <p id="customer_address"></p>
+  
+  	<div id="gear"> </div>
+  
+  	<div id="user">
+  	<div class="horizontal">
+  	   <div class="icon-medium">
+      	 <span class="material-icons" style="font-size: 32px;">person</span>
       </div>
-    </div>
+            
+  	  <div class="vertical" style="margin-left: 10px;">
+        	<h4 id="garageName">Nivitha Auto Garage</h4>
+         <p id="garageDesc">Multi Brand Car Service Center</p>
+     </div>
+  	</div>
+  	
+  	
+  	<div class="title-bar">
+  			<h4>Vehicle Service History</h4>
+  	</div>
+  	
+  	<div class="title-bar">
+  	<div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
+  			<div class="vertical" style="flex: 4; padding-left: 10px;">
+  					<p style="font-size: 16px;" id="customerName" > Balakrishnan </p>
+  					<p id="customerAddress">Vadugapalayam</p>
+  			</div>
+   		
+  			<div class="vertical" style="flex: 1;">
+  					<div class="credit-text" style="font-size: 18px;" id="creditText"></div>
+  						<div class="balance-text" style="font-size: 18px;" id="balanceText"></div>
+  			</div>
+		</div>
+		</div>
 
-
-    <script type="module" src="script.js"></script>
+  	
+  	
+  	
+  
+    <div id="customerList"></div>
+    
+    
+     <script src="script.js"></script>
   </body>
-
 </html>
- 
