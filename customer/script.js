@@ -6,7 +6,7 @@ async function getCustomerDetails() {
     console.log("Token:", token);
 
     if (!token) {
-        console.error("Token Not ");
+        console.error("Token Not Found");
         return;
     }
 
@@ -18,7 +18,8 @@ async function getCustomerDetails() {
     if (snap.exists()) {
         const data = snap.data();
         console.log("Data:", data); // டேட்டா வருகிறதா என்று பார்க்க
-
+alert("டேட்டா வந்துள்ளது! பெயர்: " + data.Name); 
+    
         // HTML-இல் டேட்டாவை செட் செய்ய
         document.getElementById("customerName").textContent = data.Name || "Name Not Found";
         document.getElementById("customerAddress").textContent = data.Address || "Address Not Found";
