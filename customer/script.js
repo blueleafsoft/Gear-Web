@@ -13,8 +13,14 @@ console.log("Exists:", snap.exists());
 if (snap.exists()) {
     const data = snap.data();
 
-    document.getElementById("customer_name").textContent = data.Name;
-    document.getElementById("customer_address").textContent = data.Address;
+    document.getElementById("customerName").textContent = data.Name;
+    document.getElementById("customerAddress").textContent = data.Address;
+    
+    uid = data.User_Id;
+    
+    
+    
+    
 } else {
-    document.getElementById("customer_name").textContent = "Customer not found";
+    document.getElementById("customerAddress").textContent = "Customer not found";
 }
