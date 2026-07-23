@@ -48,27 +48,11 @@ getCustomerDetails();
 const vehicleList = document.getElementById("vehicleList");
 
 
+
+
+
+
 async function getVehicle(customerId) {
-    alert("1: Function Called");
-
-    try {
-        alert("2: Customer ID = " + customerId);
-
-        const vehicleRef = collection(db, "Customers", customerId, "Workshop");
-        alert("3: Collection Created");
-
-        const vehicleSnap = await getDocs(vehicleRef);
-        alert("4: Documents = " + vehicleSnap.size);
-
-    } catch (e) {
-        alert("ERROR: " + e.message);
-        console.error(e);
-    }
-}
-
-
-
-async function getVehiclexx(customerId) {
     try {
         const vehicleList = document.getElementById("vehicleList");
 
@@ -121,5 +105,26 @@ async function getVehiclexx(customerId) {
 
     } catch (error) {
         console.error("Error fetching vehicles:", error);
+    }
+}
+
+
+
+
+async function getVehiclexx(customerId) {
+    alert("1: Function Called");
+
+    try {
+        alert("2: Customer ID = " + customerId);
+
+        const vehicleRef = collection(db, "Customers", customerId, "Workshop");
+        alert("3: Collection Created");
+
+        const vehicleSnap = await getDocs(vehicleRef);
+        alert("4: Documents = " + vehicleSnap.size);
+
+    } catch (e) {
+        alert("ERROR: " + e.message);
+        console.error(e);
     }
 }
