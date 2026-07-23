@@ -32,7 +32,7 @@ async function getCustomerDetails() {
         const snap = await getDoc(ref);
         
         if (snap.exists()) {
-    					 await Promise.all([getuser(snap),getVehicle(token)]);
+    					 await Promise.all([getuser(snap.data()),getVehicle(token)]);
 								} else {
           document.getElementById("customerName").textContent = "Customer Not Found";
           document.getElementById("customerAddress").textContent = "";
