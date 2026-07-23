@@ -13,7 +13,7 @@ async function getuser(datasnapshot) {
           const data = snap.data();
           
           document.getElementById("garageName").textContent = data.name || "";
-          document.getElementById("garageDesc").textContent =  || "";
+          document.getElementById("garageDesc").textContent = data.user_description  || "";
           
             
           document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
