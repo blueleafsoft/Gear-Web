@@ -11,7 +11,8 @@ async function getuser(datasnapshot) {
         
         if (snap.exists()) {
           const data = snap.data();
-          
+          alert("UID கிடைத்துவிட்டது: " + uid);
+
           document.getElementById("garageName").textContent = data.name || "";
           document.getElementById("garageDesc").textContent = data.user_description  || "";
           
