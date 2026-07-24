@@ -42,7 +42,7 @@ async function getCustomerDetails() {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
-          //promises.push(getSparesList(id));
+          promises.push(getSparesList(id));
         }
         if (vehicleList) {
           promises.push(getVehicleList(token));
@@ -145,13 +145,15 @@ async function getVehicleData(id) {
     }
 }
 function addBillRow(table, label, value) {
-    const row = table.insertRow();
-
-    const td1 = row.insertCell(0);
-    const td2 = row.insertCell(1);
-
-    td1.textContent = label;
-    td2.textContent = value;
+const row = table.insertRow();
+    row.innerHTML = `
+        <td>
+            <div>${label}</div>
+        </td>
+        <td>
+            <div>${value}</div>
+        </td>
+    `;
 }
 
 
