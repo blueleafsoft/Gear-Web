@@ -6,7 +6,7 @@
     <title>Vehicle Service Info</title>
     <link rel="stylesheet" href="../style.css">
   </head>
-  <body style="width: 100%; max-width: 480px; margin: 0 auto;">
+  <body style="width: 100%; max-width: 480px; margin: 10px auto;">
 
 
 
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-  	
+
 
   	<div class="table-outline" style="margin-bottom: 10px;">
       <div class="horizontal">
@@ -38,32 +38,33 @@
       </div>
       <div class="divider-horizontal"></div>
       <table class="bill-table">
-          <tr>
-            <td class="label" >
-              <div>Bill No</div>
-              <div>Odometer</div>
-              <div>Bill Amount</div>
-              <div>Paid Amount</div>
-            </td>
-            <td class="value">
-              <div>INV260712</div>
-              <div>78,789 km</div>
-              <div>₹5,800</div>
-              <div>₹5,500</div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      
-      
+        <tr>
+          <td class="label" >
+            <div>Service Date</div>
+            <div>Bill Number</div>
+            <div>Odometer</div>
+            <div>Bill Amount</div>
+            <div>Paid Amount</div>
+          </td>
+          <td class="value">
+            <div id="date">24.07.2026 11:56 AM</div>
+            <div id="billNo">INV260712</div>
+            <div id="onKm">78,789 km</div>
+            <div id="billAmount">₹5,800</div>
+            <div id="paidAmount">₹5,500</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
     <div class="title-bar">
       <h4>Spares And Service</h4>
   	</div>
-      
+
     <div id="serviceList"></div>
 
-
-
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    
   </body>
 </html>
