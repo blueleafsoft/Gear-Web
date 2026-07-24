@@ -41,7 +41,8 @@ async function getCustomerDetails() {
         if (snap.exists()) {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
-          promises.push(getSparesList(id));
+		  promises.push(getVehicleData(id));
+          promises.push(getSparesList(token, id));
         }
         if (vehicleList) {
           promises.push(getVehicleList(token));
@@ -53,6 +54,7 @@ async function getCustomerDetails() {
         }
     } catch (error) {
         console.error("Error fetching document:", error);
+		alert(`${error.name}\n${error.message}`);
     }
 }
 
@@ -114,26 +116,32 @@ async function getVehicleList(customerId) {
         });
     } catch (error) {
         console.error("Error fetching vehicles:", error);
+		alert(`${error.name}\n${error.message}`);
     }
 }
+async function getVehicleData(id){
+	try {
+        const ref = collection(db, "Customers", token, "Workshop", id);
+        const snap = await getDocs(ref);
+		const data = snap.data();
+		document.getElementById("date").textContent = data.date || "";
+	} catch (error){
+		console.error("Error fetching spares:", error);
+		alert(`${error.name}\n${error.message}`);
+	}
+}
 
-
-
-async function getVehiclexx(customerId) {
-    alert("1: Function Called");
-
+async function getSparesList(id) {
     try {
-        alert("2: Customer ID = " + customerId);
+        const ref = collection(db, "Customers", token, "Spares", id);
+        const snap = await getDocs(ref);
+		snap.forEach((doc) =>{
+			
+		});
+	} catch (error){
+		console.error("Error fetching spares:", error);
+		alert(`${error.name}\n${error.message}`);
+	}
+}
 
-        const vehicleRef = collection(db, "Customers", customerId, "Workshop");
-        alert("3: Collection Created");
-
-        const vehicleSnap = await getDocs(vehicleRef);
-        alert("4: Documents = " + vehicleSnap.size);
-
-    } catch (e) {
-        alert("ERROR: " + e.message);
-        console.error(e);
-    }
-}			
 
