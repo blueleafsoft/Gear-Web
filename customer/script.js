@@ -119,18 +119,25 @@ async function getVehicleList(customerId) {
 		alert(`Vehicle List\n${error.name}\n${error.message}`);
     }
 }
-async function getVehicleData(id){
-	try {
-        const ref = collection(db, "Customers", token, "Workshop", id);
-        const snap = await getDocs(ref);
-		const data = snap.data();
-		document.getElementById("date").textContent = data.date || "";
-	} catch (error){
-		console.error("Error fetching spares:", error);
-		alert(`Vehicle Data\n${error.name}\n${error.message}`);
-	}
-}
+async function getVehicleData(id) {
+    try {
+        const ref = doc(db, "Customers", token, "Workshop", id);
+        const snap = await getDoc(ref);
 
+        if (snap.exists()) {
+            const data = snap.data();
+            document.getElementById("date").textContent = data.date || "";
+			document.getElementById("model").textContent = data.brand + " - "+ data.model || "";
+			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
+			
+        } else {
+            console.log("Workshop document not found");
+        }
+    } catch (error) {
+        console.error("Error fetching vehicle data:", error);
+        alert(`Vehicle Data\n${error.name}\n${error.message}`);
+    }
+}
 async function getSparesList(id) {
     try {
         const ref = collection(db, "Customers", token, "Spares", id);
