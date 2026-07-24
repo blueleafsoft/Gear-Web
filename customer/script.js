@@ -6,7 +6,7 @@ const token = params.get("token");
 const id = params.get("id");
 
 const vehicleList = document.getElementById("vehicleList");
-const sparesList = document.getElementById("sparesList");
+const sparesList = document.getElementById("serviceList");
 
 
 async function getuser(customer) {
@@ -42,7 +42,7 @@ async function getCustomerDetails() {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
-          promises.push(getSparesList(id));
+          //promises.push(getSparesList(id));
         }
         if (vehicleList) {
           promises.push(getVehicleList(token));
@@ -126,14 +126,16 @@ async function getVehicleData(id) {
 
         if (snap.exists()) {
             const data = snap.data();
-
-
-            alert(JSON.stringify(snap.data(), null, 2));
-			
-            document.getElementById("date").textContent = data.date || "";
-			document.getElementById("model").textContent = data.brand + " - "+ data.model || "";
+            document.getElementById("model").textContent = data.brand + " - "+ data.model || "";
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
-			
+			const table = document.getElementById("vehicleTable");
+            table.innerHTML = "";
+
+            addBillRow(table, "Bill No", data.billNo || "");
+            addBillRow(table, "On KM", data.onKm || "");
+            addBillRow(table, "Bill", `₹${data.bill || 0}`);
+            addBillRow(table, "Pay", `₹${data.pay || 0}`);
+            addBillRow(table, "Date", data.date || "");
         } else {
             alert("Service document not found");
         }
@@ -142,17 +144,38 @@ async function getVehicleData(id) {
         alert(`Vehicle Data\n${error.name}\n${error.message}`);
     }
 }
-async function getSparesList(id) {
-    try {
-        const ref = collection(db, "Customers", token, "Spares", id);
-        const snap = await getDocs(ref);
-		snap.forEach((doc) =>{
-			
-		});
-	} catch (error){
-		console.error("Error fetching spares:", error);
-		alert(`Spares List\n${error.name}\n${error.message}`);
-	}
+function addBillRow(table, label, value) {
+    const row = table.insertRow();
+
+    const td1 = row.insertCell(0);
+    const td2 = row.insertCell(1);
+
+    td1.textContent = label;
+    td2.textContent = value;
 }
 
+
+async function getSparesList(id) {
+    try {
+        const ref = doc(db, "Customers", token, "Spares", id);
+        const snap = await getDoc(ref);
+
+        if (snap.exists()) {
+            const items = snap.data();
+
+            Object.entries(items).forEach(([itemId, item]) => {
+                console.log(itemId);
+                console.log(item.desc);
+                console.log(item.qty);
+                console.log(item.rate);
+            });
+        } else {
+            alert("Spares document not found");
+        }
+
+    } catch (error) {
+        console.error("Error fetching spares:", error);
+        alert(`Spares List\n${error.name}\n${error.message}`);
+    }
+}
 
