@@ -54,7 +54,7 @@ async function getCustomerDetails() {
         }
     } catch (error) {
         console.error("Error fetching document:", error);
-		alert(`${error.name}\n${error.message}`);
+		alert(`Customer Data\n${error.name}\n${error.message}`);
     }
 }
 
@@ -116,7 +116,7 @@ async function getVehicleList(customerId) {
         });
     } catch (error) {
         console.error("Error fetching vehicles:", error);
-		alert(`${error.name}\n${error.message}`);
+		alert(`Vehicle List\n${error.name}\n${error.message}`);
     }
 }
 async function getVehicleData(id){
@@ -127,7 +127,7 @@ async function getVehicleData(id){
 		document.getElementById("date").textContent = data.date || "";
 	} catch (error){
 		console.error("Error fetching spares:", error);
-		alert(`${error.name}\n${error.message}`);
+		alert(`Vehicle Data\n${error.name}\n${error.message}`);
 	}
 }
 
@@ -140,7 +140,7 @@ async function getSparesList(id) {
 		});
 	} catch (error){
 		console.error("Error fetching spares:", error);
-		alert(`${error.name}\n${error.message}`);
+		alert(`Spares List\n${error.name}\n${error.message}`);
 	}
 }
 
