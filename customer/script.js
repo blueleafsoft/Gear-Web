@@ -80,7 +80,7 @@ async function getVehicle(customerId) {
             card.className = "adapter";
 
             card.innerHTML = `
-                <div class="horizontal">
+                <div class="horizontal" style="width:100%;">
                     <div class="left-bar"></div>
                     <div class="icon">
                         <span class="material-icons" style="font-size:42px;">directions_car</span>
