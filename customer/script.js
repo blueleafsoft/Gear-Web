@@ -6,7 +6,7 @@ const token = params.get("token");
 const id = params.get("id");
 
 const vehicleList = document.getElementById("vehicleList");
-const sparesList = document.getElementById("sparesList");
+const sparesList = document.getElementById("serviceList");
 
 
 async function getuser(customer) {
