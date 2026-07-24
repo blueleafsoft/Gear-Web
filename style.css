@@ -291,6 +291,7 @@ button:hover {
     gap:15px;
     width: 100%;
     align-items: stretch; 
+    background: yellow;
 }
 #serviceList{
     display:flex;
@@ -300,9 +301,9 @@ button:hover {
     align-items: stretch; 
 }
 .adapter{
-    background: var(--md-sys-color-surface-container-high);
+    //background: var(--md-sys-color-surface-container-high);
     color: var(--md-sys-color-on-surface);
-    //background: gray;
+    background: red;
     padding: 0px;
     overflow:hidden;
     border-radius: 6px;
@@ -314,6 +315,7 @@ button:hover {
 	display:flex;
 	flex: 1;
 	width: 100%;
+	background: ;
 }
 .vertical{
 			 color: var(--md-sys-color-on-surface);
