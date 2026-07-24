@@ -300,7 +300,7 @@ button:hover {
     align-items: stretch; 
 }
 .adapter{
-    background: var(high-sys-color-surface-container-lowest);
+    background: var(high-sys-color-surface-container-low);
     color: var(--md-sys-color-on-surface);
     padding: 0px;
     overflow:hidden;
@@ -311,7 +311,7 @@ button:hover {
 }
 
 .left-bar{
-	   background: var(--md-sys-color-primary);
+	   background: var(--md-sys-color-tertiary);
     width:5px;
     align-self:stretch;
 }
