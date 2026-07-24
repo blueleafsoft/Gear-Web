@@ -300,7 +300,7 @@ button:hover {
     align-items: stretch; 
 }
 .adapter{
-    background: var(--md-sys-color-surface-container-high);
+    background: var(--md-sys-color-surface-dim);
     color: var(--md-sys-color-on-surface);
     padding: 0px;
     overflow:hidden;
@@ -331,7 +331,7 @@ button:hover {
     flex-direction: column;
     margin-top: 5px;
     flex: 1;
-    gap: 4px;   /* அல்லது 6px */
+    gap: 4px;  
 }
 .vertical h4{
     margin: 0;
