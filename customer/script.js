@@ -42,7 +42,7 @@ async function getCustomerDetails() {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
-          promises.push(getSparesList(token, id));
+          promises.push(getSparesList(id));
         }
         if (vehicleList) {
           promises.push(getVehicleList(token));
@@ -126,12 +126,16 @@ async function getVehicleData(id) {
 
         if (snap.exists()) {
             const data = snap.data();
+
+
+            alert(JSON.stringify(snap.data(), null, 2));
+			
             document.getElementById("date").textContent = data.date || "";
 			document.getElementById("model").textContent = data.brand + " - "+ data.model || "";
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
 			
         } else {
-            alert("Workshop document not found");
+            alert("Service document not found");
         }
     } catch (error) {
         console.error("Error fetching vehicle data:", error);
