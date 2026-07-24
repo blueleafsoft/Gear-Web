@@ -47,35 +47,35 @@ getCustomerDetails();
 
 const vehicleList = document.getElementById("vehicleList");
 
-
-
-
-
-
 async function getVehicle(customerId) {
     try {
-        const vehicleList = document.getElementById("vehicleList");
-
+        
         const vehicleRef = collection(db, "Customers", customerId, "Workshop");
         const vehicleSnap = await getDocs(vehicleRef);
-        alert(vehicleSnap.size);
-
+        
         vehicleSnap.forEach((doc) => {
             const item = doc.data();
             console.log(item);
-            alert(JSON.stringify(item, null, 2));
+            //alert(JSON.stringify(item, null, 2));
 
             let bill = item.Bill_Amount || 0;
             let pay = item.Payment_Amount || 0;
+            let isPaid = bill == pay;
 
             let credit = bill - pay;
             let balance = pay - bill;
             let isCredit = bill > pay;
 
-            let htmlContent = isCredit
-                ? `<p class="credit-text">Credit : ₹${credit}</p>`
-                : `<p class="balance-text">Balance : ₹${balance}</p>`;
+            let htmlContent;
 
+												if (isPaid) {
+               htmlContent = `<p class="balance-text">Paid : ₹${pay}</p>`;
+            } else if (isCredit) {
+               htmlContent = `<p class="credit-text">Credit : ₹${credit}</p>`;
+            } else {
+               htmlContent = `<p class="balance-text">Balance : ₹${balance}</p>`;
+            }
+            
             const card = document.createElement("div");
             card.className = "adapter";
 
@@ -127,4 +127,4 @@ async function getVehiclexx(customerId) {
         alert("ERROR: " + e.message);
         console.error(e);
     }
-}
+}			
