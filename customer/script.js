@@ -108,8 +108,7 @@ async function getVehicleList(customerId) {
                 </div>
             `;
             card.addEventListener("click", () => {
-                //console.log("Selected Item:", item.Brand);
-				window.location.href = `service-info.html?token=${encodeURIComponent(token)}&id=${encodeURIComponent(doc.id)}`;
+				window.location.href = `service-info.html?token=${token}&id=${doc.id}`;
             });
             vehicleList.appendChild(card);
         });
