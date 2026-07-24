@@ -128,3 +128,4 @@ async function getVehiclexx(customerId) {
         console.error(e);
     }
 }			
+
