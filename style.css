@@ -311,7 +311,7 @@ button:hover {
 }
 
 .left-bar{
-    background: var(--md-sys-color-tertiary);
+    background: var(--md-sys-color-on-primary-fixed-variant);
     width:5px;
     align-self:stretch;
 }
