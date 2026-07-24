@@ -131,7 +131,7 @@ async function getVehicleData(id) {
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
 			
         } else {
-            console.log("Workshop document not found");
+            alert("Workshop document not found");
         }
     } catch (error) {
         console.error("Error fetching vehicle data:", error);
