@@ -42,7 +42,7 @@ async function getCustomerDetails() {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
-          promises.push(getSparesList(id));
+          //promises.push(getSparesList(id));
         }
         if (vehicleList) {
           promises.push(getVehicleList(token));
