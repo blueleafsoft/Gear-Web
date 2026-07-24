@@ -130,12 +130,12 @@ async function getVehicleData(id) {
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
 			const table = document.getElementById("vehicleTable");
             table.innerHTML = "";
-
+            addBillRow(table, "Date", data.date || "");
             addBillRow(table, "Bill No", data.billNo || "");
             addBillRow(table, "On KM", data.onKm || "");
             addBillRow(table, "Bill", `₹${data.bill || 0}`);
             addBillRow(table, "Pay", `₹${data.pay || 0}`);
-            addBillRow(table, "Date", data.date || "");
+            
         } else {
             alert("Service document not found");
         }
@@ -147,10 +147,10 @@ async function getVehicleData(id) {
 function addBillRow(table, label, value) {
 const row = table.insertRow();
     row.innerHTML = `
-        <td>
+         <td class="label">
             <div>${label}</div>
         </td>
-        <td>
+         <td class="value">
             <div>${value}</div>
         </td>
     `;
