@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url("css/theme.css");
+@import url("css/table.css");
 
 
 * {
@@ -357,35 +358,7 @@ button:hover {
 	font-weight: bold;
  	font-size: 16px;
 }
-.table-outline {
-    border: 1px solid var(--md-sys-color-outline);
-    border-radius: 6px;
-    overflow: hidden;
-}
 
-.table-outline table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-outline td {
-    width: 50%;
-    vertical-align: top;
-}
-
-.table-outline td div {
-	font-size: 14px;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--md-sys-color-outline);
-}
-
-.table-outline td div:last-child {
-    border-bottom: none;
-}
-
-.table-outline td:first-child {
-    border-right: 1px solid var(--md-sys-color-outline);
-}
 
 .material-icons {
   font-size: 16px;
@@ -393,7 +366,7 @@ button:hover {
 }
 
 .title-bar{ 
-			background: var(--md-sys-color-surface-container);
+   background: var(--md-sys-color-surface-container);
    color: var(--md-sys-color-primary);
    
    overflow:hidden;
