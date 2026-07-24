@@ -1,6 +1,14 @@
 import { db } from "../firebase.js";
 import { doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
+const id = params.get("id");
+
+const vehicleList = document.getElementById("vehicleList");
+const sparesList = document.getElementById("sparesList");
+
+
 async function getuser(customer) {
     const uid = customer.User_Id;
     //alert(JSON.stringify(customer));
@@ -9,7 +17,7 @@ async function getuser(customer) {
 
     if (snap.exists()) {
         const user = snap.data();
-					//alert(JSON.stringify(user));
+		//alert(JSON.stringify(user));
 						
         document.getElementById("garageName").textContent = user.name || "";
         document.getElementById("garageDesc").textContent = user.user_description || "";
@@ -21,8 +29,6 @@ async function getuser(customer) {
 
 
 async function getCustomerDetails() {
-    const token = new URLSearchParams(window.location.search).get("token");
-    
     if (!token) {
         console.error("Token Not Found");
         return;
@@ -33,8 +39,15 @@ async function getCustomerDetails() {
         const snap = await getDoc(ref);
         
         if (snap.exists()) {
-    					 await Promise.all([getuser(snap.data()),getVehicle(token)]);
-								} else {
+    	 const promises = [getuser(snap.data())];
+        if (sparesList) {
+          promises.push(getSparesList(id));
+        }
+        if (vehicleList) {
+          promises.push(getVehicleList(token));
+        }
+        await Promise.all(promises);
+		} else {
           document.getElementById("customerName").textContent = "Customer Not Found";
           document.getElementById("customerAddress").textContent = "";
         }
@@ -45,11 +58,9 @@ async function getCustomerDetails() {
 
 getCustomerDetails();
 
-const vehicleList = document.getElementById("vehicleList");
 
-async function getVehicle(customerId) {
+async function getVehicleList(customerId) {
     try {
-        
         const vehicleRef = collection(db, "Customers", customerId, "Workshop");
         const vehicleSnap = await getDocs(vehicleRef);
         
@@ -57,9 +68,11 @@ async function getVehicle(customerId) {
             const item = doc.data();
             console.log(item);
             //alert(JSON.stringify(item, null, 2));
-
-            let bill = item.Bill_Amount || 0;
-            let pay = item.Payment_Amount || 0;
+            let title = item.model +" - " + item.vehicleNo;
+			let date = item.date;
+			let billNo = item.billNo;
+			let bill = item.bill || 0;
+            let pay = item.pay || 0;
             let isPaid = bill == pay;
 
             let credit = bill - pay;
@@ -67,8 +80,7 @@ async function getVehicle(customerId) {
             let isCredit = bill > pay;
 
             let htmlContent;
-
-												if (isPaid) {
+			if (isPaid) {
                htmlContent = `<p class="balance-text">Paid : ₹${pay}</p>`;
             } else if (isCredit) {
                htmlContent = `<p class="credit-text">Credit : ₹${credit}</p>`;
@@ -86,8 +98,8 @@ async function getVehicle(customerId) {
                         <span class="material-icons" style="font-size:42px;">directions_car</span>
                     </div>
                     <div class="vertical">
-                        <h4>${item.Brand}</h4>
-                        <p>${item.Model}</p>
+                        <h4>${title}</h4>
+                        <p> ${date}</p>
                         ${htmlContent}
                     </div>
                     <div class="amount">
@@ -95,19 +107,16 @@ async function getVehicle(customerId) {
                     </div>
                 </div>
             `;
-
             card.addEventListener("click", () => {
-                console.log("Selected Item:", item.Brand);
+                //console.log("Selected Item:", item.Brand);
+				window.location.href = `service-info.html?token=${encodeURIComponent(token)}&id=${encodeURIComponent(doc.id)}`;
             });
-
             vehicleList.appendChild(card);
         });
-
     } catch (error) {
         console.error("Error fetching vehicles:", error);
     }
 }
-
 
 
 
