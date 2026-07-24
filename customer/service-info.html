@@ -6,48 +6,60 @@
     <title>Vehicle Service Info</title>
     <link rel="stylesheet" href="../style.css">
   </head>
-  <body>
- 
- 
- 
+  <body style="width: 100%; max-width: 480px; margin: 0 auto;">
+
+
+
  	<div class="title-bar">
-  	<div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
-  			<div class="vertical" style="flex: 4; padding-left: 10px;">
-  					<p style="font-size: 16px;" id="customerName" > Balakrishnan </p>
-  					<p id="customerAddress">Vadugapalayam</p>
-  			</div>
-   		
-  			<div class="vertical" style="flex: 1;">
-  					<div class="credit-text" style="font-size: 18px;" id="creditText"></div>
-  						<div class="balance-text" style="font-size: 18px;" id="balanceText"></div>
-  			</div>
-		</div>
-		</div>
-  	
-  	<div class="title-bar">
-  			<h4>Spares And Service</h4>
-  	</div>
-  	
-  	<div class="adapter" style="margin-bottom: 10px;">
-  	   <div class="horizontal">
-            <div class="left-bar"></div>
-            <div class="icon">
-                <span class="material-icons" style="font-size: 42px; margin: 0px;">directions_car</span>
-            </div>
-            <div class="vertical">
-                <h4 id="desc"/>
-                <p id="date"/>
-            </div>
-            <div class="amount">
-                <p id="bill"></p>
-            </div>
+      <div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
+        <div class="vertical" style="flex: 4; padding-left: 10px;">
+          <p style="font-size: 16px;" id="customerName" > Balakrishnan </p>
+          <p id="customerAddress">Vadugapalayam</p>
         </div>
- </div>
- 
+
+        <div class="vertical" style="flex: 1;">
+          <div class="credit-text" style="font-size: 18px;" id="creditText"></div>
+          <div class="balance-text" style="font-size: 18px;" id="balanceText"></div>
+        </div>
+      </div>
+    </div>
+
+  	<div class="title-bar">
+      <h4>Spares And Service</h4>
+  	</div>
+
+  	<div class="adapter" style="margin-bottom: 10px;">
+      <div class="horizontal">
+        <div class="icon" style="width: 42px; height: 42px;">
+          <span class="material-icons" style="font-size: 28px; margin: 0px;">directions_car</span>
+        </div>
+        <div class="vertical"style="margin-left: 10px;">
+          <p id="model" style="font-size: 14px;">Skoda - Slavia</p>
+          <p id="vehicleNo"style="font-size: 14px;"> TN42 AA7608</p>
+        </div>
+      </div>
+      <table class="bill-table"style="width: 100%; border: 1px solid #ddd;">
+        <tr>
+          <td class="label" style="padding: 10px; border: 1px solid #ddd;">
+            <div>Bill No</div>
+            <div>Odometer</div>
+            <div>Bill Amount</div>
+            <div>Paid Amount</div>
+          </td>
+          <td class="value"style="padding: 10px; border: 1px solid #ddd; ">
+            <div>INV260712</div>
+            <div>78,789 km</div>
+            <div>₹5,800</div>
+            <div>₹5,500</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
     <div id="serviceList"></div>
-   
-  
-    
-     <script src="script.js"></script>
+
+
+
+    <script src="script.js"></script>
   </body>
 </html>
