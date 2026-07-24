@@ -359,7 +359,7 @@ button:hover {
 }
 .table-outline {
     border: 1px solid var(--md-sys-color-outline);
-    border-radius: 12px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -374,6 +374,7 @@ button:hover {
 }
 
 .table-outline td div {
+	font-size: 14px;
     padding: 10px 12px;
     border-bottom: 1px solid var(--md-sys-color-outline);
 }
