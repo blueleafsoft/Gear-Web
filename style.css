@@ -6,8 +6,6 @@
 
 
 * {
-   // margin-left: auto;
-    //margin-right: auto;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -16,6 +14,8 @@
 body {
 	margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    max-width: 720px;
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
 }
@@ -23,54 +23,29 @@ body {
 .app-item-container {
     display: flex;
     flex-direction: column;
-    /* Icon mela, text keela */
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    width: 80px;
-    /* Gap already 8px irukura nala, margin separate ah thevai illa */
     text-decoration: none;
-    cursor: pointer;
 }
 
-/* Selector select pannum podhu h1 element match aaguranu dynamic check */
 .app-item-container h1 {
     margin-top: 5px;
     font-size: 24px;
-    /* 24px icon sized box standard container ku romba perusa irukum, so 14px-16px is best */
     font-weight: bold;
-    /* Make sure unga color value set path visible */
     text-align: center;
 }
 
 .app-icon {
     background-image: url('logo.png');
-    /* Unga app icon path */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
-    /* M3 Standard Component Dimensions */
     width: 80px;
     height: 80px;
-
-    /* M3 Adaptive Icon Shape - Custom Rounded Corners */
     border-radius: 16px;
-
-    /* Subtle Elevation shadow dynamic logic */
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-
-/* Dark mode setup (M3 color matching strategy) */
-@media (prefers-color-scheme: dark) {
-    .brand-logo {
-        /* Bright background light theme logos dark theme la eye-strain custom controls setup standard shift alternative black icon settings code value setup rules */
-        background-image: url('assets/logo-dark-mode.svg');
-    }
-}
-
-
-
 
 /* Header */
 header {
@@ -322,7 +297,7 @@ button:hover {
 .horizontal{
 	display:flex;
 	flex: 1;
-	flex direction: column;
+	flex-direction: column;
 	justify-content: vertical center;
 	width: 100%;
 }

@@ -1,7 +1,4 @@
-// Simple script to demonstrate interactivity
-const button = document.getElementById("countBtn");
-const countEl = document.getElementById("count");
-let count = 0;
+
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("strings.json")
