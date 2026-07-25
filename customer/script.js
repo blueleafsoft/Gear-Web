@@ -185,7 +185,7 @@ async function getSparesList(id) {
           <p>Rate : ₹${item.rate} | Qty : ${item.qty}</p>
         </div>
            <div style="padding-right: 10px;">
-               // <p>₹${item.total}</p>
+               
             </div>
       </div>`;
     
