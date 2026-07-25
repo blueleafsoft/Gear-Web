@@ -156,28 +156,31 @@ const row = table.insertRow();
     `;
 }
 
-
 async function getSparesList(id) {
+	alert(id);
     try {
         const ref = doc(db, "Customers", token, "Spares", id);
         const snap = await getDoc(ref);
-
-        if (snap.exists()) {
-            const items = snap.data();
-
-            Object.entries(items).forEach(([itemId, item]) => {
-                console.log(itemId);
-                console.log(item.desc);
-                console.log(item.qty);
-                console.log(item.rate);
-            });
-        } else {
+        alert(snap.exists());
+        if (!snap.exists()) {
             alert("Spares document not found");
+            return;
         }
 
+        const items = snap.data();
+		const items = snap.data();
+        alert(JSON.stringify(items, null, 2));
+        console.log(items);
+
+        Object.entries(items).forEach(([itemId, item]) => {
+            console.log(itemId, item);
+            // Example
+            // addSpareRow(item.desc, item.qty, item.rate);
+        });
     } catch (error) {
         console.error("Error fetching spares:", error);
         alert(`Spares List\n${error.name}\n${error.message}`);
     }
 }
+
 
