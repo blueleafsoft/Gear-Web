@@ -157,7 +157,6 @@ const row = table.insertRow();
 }
 
 async function getSparesList(id) {
-	alert(id);
     try {
         const ref = doc(db, "Customers", token, "Spares", id);
         const snap = await getDoc(ref);
@@ -168,7 +167,6 @@ async function getSparesList(id) {
         }
 
         const items = snap.data();
-		const items = snap.data();
         alert(JSON.stringify(items, null, 2));
         console.log(items);
 
