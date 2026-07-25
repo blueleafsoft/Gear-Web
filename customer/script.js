@@ -160,20 +160,36 @@ async function getSparesList(id) {
     try {
         const ref = doc(db, "Customers", token, "Spares", id);
         const snap = await getDoc(ref);
-        alert(snap.exists());
+        //alert(snap.exists());
         if (!snap.exists()) {
             alert("Spares document not found");
             return;
         }
 
         const items = snap.data();
-        alert(JSON.stringify(items, null, 2));
-        console.log(items);
+        //alert(JSON.stringify(items, null, 2));
+        //console.log(items);
 
         Object.entries(items).forEach(([itemId, item]) => {
-            console.log(itemId, item);
-            // Example
-            // addSpareRow(item.desc, item.qty, item.rate);
+            //console.log(itemId, item);
+            const card = document.createElement("div");
+           card.className = "adapter";
+    
+           card.innerHTML = `
+              <div class="horizontal">
+               <div class="icon" style="width: 42px; height: 42px;">
+                <span class="material-icons" style="font-size: 24px;">handyman</span>
+            </div>
+        <div class="vertical">
+          <h4>${item.desc}</h4>
+          <p>Rate : ₹${item.rate} | Qty : ${item.qty}</p>
+        </div>
+           <div style="padding-right: 10px;">
+               // <p>₹${item.total}</p>
+            </div>
+      </div>`;
+    
+    sparesList.appendChild(card);
         });
     } catch (error) {
         console.error("Error fetching spares:", error);
