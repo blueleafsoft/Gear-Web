@@ -172,6 +172,7 @@ async function getSparesList(id) {
 
         Object.entries(items).forEach(([itemId, item]) => {
             //console.log(itemId, item);
+			let total = item.total || 0;
             const card = document.createElement("div");
            card.className = "adapter";
     
@@ -185,7 +186,7 @@ async function getSparesList(id) {
           <p>Rate : ₹${item.rate} | Qty : ${item.qty}</p>
         </div>
            <div style="padding-right: 10px;">
-               
+               <p>₹${total}</p>
             </div>
       </div>`;
     
