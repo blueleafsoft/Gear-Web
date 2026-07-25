@@ -297,7 +297,7 @@ button:hover {
 .horizontal{
 	display:flex;
 	flex: 1;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: vertical center;
 	width: 100%;
 }
