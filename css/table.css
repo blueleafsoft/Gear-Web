@@ -1,60 +1,44 @@
 .table-outline {
+    margin-bottom: 10px;
+    background: var(--md-sys-color-surface-container-lowest);
+    color: var(--md-sys-color-on-surface);
 
-  background: var(--md-sys-color-surface-container-lowest);
-    
-  color: var(--md-sys-color-on-surface);
-  border: 1px solid var(--md-sys-color-outline);
-  
-  border-radius: 6px;
- 
-  overflow: hidden;
- 
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 6px;
+    overflow: hidden;
 }
-
-
 
 .table-outline table {
-    
-  width: 100%;
-   
-  border-collapse: collapse;
-
+    width: 100%;
+    border-collapse: collapse;
 }
 
+.table-outline tr {
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
 
+.table-outline tr:last-child {
+    border-bottom: none;
+}
 
 .table-outline td {
-  
-  width: 50%;
- 
-  vertical-align: top;
-
+    width: 50%;
+    vertical-align: middle;
 }
-
-
-
-.table-outline td div {
-  
-  font-size: 14px;
-  
-  padding: 10px 12px;
-  
-  border-bottom: 1px solid var(--md-sys-color-outline);
-
-}
-
-
-
-.table-outline td div:last-child {
- 
-  border-bottom: none;
-
-}
-
-
 
 .table-outline td:first-child {
- 
-  border-right: 1px solid var(--md-sys-color-outline);
+    border-right: 1px solid var(--md-sys-color-outline);
+}
 
+.table-outline td div {
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.table-outline .label {
+    font-weight: 500;
+}
+
+.table-outline .value {
+    text-align: right;
 }
