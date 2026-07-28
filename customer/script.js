@@ -39,6 +39,7 @@ async function getCustomerDetails() {
         const snap = await getDoc(ref);
         
         if (snap.exists()) {
+			window.addEventListener("load", async () => {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
@@ -48,7 +49,14 @@ async function getCustomerDetails() {
           promises.push(getVehicleList(token));
         }
         await Promise.all(promises);
+
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("content").style.display = "block";
+		});
+			
 		} else {
+		  document.getElementById("loadingScreen").style.display = "none";
+          document.getElementById("content").style.display = "block";
           document.getElementById("customerName").textContent = "Customer Not Found";
           document.getElementById("customerAddress").textContent = "";
         }
