@@ -41,7 +41,6 @@ async function getCustomerDetails() {
 
         
         if (snap.exists()) {
-			window.addEventListener("load", async () => {
     	 const promises = [getuser(snap.data())];
         if (sparesList) {
 		  promises.push(getVehicleData(id));
@@ -52,9 +51,7 @@ async function getCustomerDetails() {
         }
         await Promise.all(promises);
         loading.remove();
-        document.getElementById("loadingScreen").style.display = "none";
         document.getElementById("content").style.display = "block";
-		});
 		} else {
 		  loading.remove();
           document.getElementById("content").style.display = "block";
