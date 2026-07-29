@@ -94,7 +94,7 @@ async function getVehicleList(customerId) {
             let pay = item.pay || 0;
             let isPaid = bill == pay;
 
-            let credit = Mat.abs(bill - pay);
+            let credit = Math.abs(bill - pay);
             let isCredit = bill < pay;
 
             let htmlContent;
