@@ -27,11 +27,13 @@ async function getuser(customer) {
         document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
         document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
 
-		let credit = Math.abs(customer.credit);
-        if (customer.credit > 0) {
-		   document.getElementById("creditText").textContent = `₹${credit || 0}`;
+		let credit = Math.abs(customer.Credit);
+        if (customer.Credit > 0) {
+			document.getElementById("amountTitle").textContent = "Credit";
+			document.getElementById("creditText").textContent = `₹${credit || 0}`;
         } else {
-           document.getElementById("balanceText").textContent = `₹${credit || 0}`;
+			document.getElementById("amountTitle").textContent ="Total Due";
+			document.getElementById("dueText").textContent = `₹${credit || 0}`;
 	    }
     }
 }
