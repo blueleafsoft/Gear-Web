@@ -317,7 +317,9 @@ button:hover {
     display: block;
     box-sizing: border-box;
 }
-
+.service-item {
+    pointer-events: none;
+}
 .left-bar{
     background: var(--md-sys-color-on-primary-fixed-variant);
     width:5px;
