@@ -8,6 +8,9 @@ const id = params.get("id");
 const vehicleList = document.getElementById("vehicleList");
 const sparesList = document.getElementById("serviceList");
 
+function formatAmount(amount) {
+    return "₹" + Number(amount ?? 0).toLocaleString("en-IN");
+}
 
 async function getuser(customer) {
     const uid = customer.User_Id;
@@ -27,13 +30,13 @@ async function getuser(customer) {
         document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
         document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
 
-		let credit = Math.abs(customer.Credit);
+		let credit = Math.abs(customer.Credit)+108090;
         if (customer.Credit < 0) {
 			document.getElementById("amountTitle").textContent = "Credit";
-			document.getElementById("dueText").textContent = `₹${credit || 0}`;
+			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
         } else {
 			document.getElementById("amountTitle").textContent ="Total Due";
-			document.getElementById("dueText").textContent = `₹${credit || 0}`;
+			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
 	    }
     }
 }
@@ -99,11 +102,11 @@ async function getVehicleList(customerId) {
 
             let htmlContent;
 			if (isPaid) {
-               htmlContent = `<p>Paid : ₹${pay}</p>`;
+               htmlContent = `<p>Paid : ${formatAmount(pay)}</p>`;
             } else if (isCredit) {
-               htmlContent = `<p class="credit-text">Credit : ₹${credit}</p>`;
+               htmlContent = `<p class="credit-text">Credit : ${formatAmount(credit)}</p>`;
             } else {
-               htmlContent = `<p class="due-text">Due : ₹${credit}</p>`;
+               htmlContent = `<p class="due-text">Due : ${formatAmount(credit)}</p>`;
             }
             
             const card = document.createElement("div");
@@ -121,7 +124,7 @@ async function getVehicleList(customerId) {
                         ${htmlContent}
                     </div>
                     <div class="amount">
-                        <p>₹${bill}</p>
+                        <p>${formatAmount(bill)}</p>
                     </div>
                 </div>
             `;
