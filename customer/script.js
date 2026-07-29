@@ -8,17 +8,12 @@ const id = params.get("id");
 const vehicleList = document.getElementById("vehicleList");
 const sparesList = document.getElementById("serviceList");
 
-function formatAmount(amount) {
-    return "₹" + Number(amount ?? 0).toLocaleString("en-IN");
-}
 
 async function getuser(customer) {
     const uid = customer.User_Id;
     //alert(JSON.stringify(customer));
     const ref = doc(db, "users", uid);
     const snap = await getDoc(ref);
-
-	 
 
     if (snap.exists()) {
         const user = snap.data();
@@ -147,14 +142,14 @@ async function getVehicleData(id) {
             const data = snap.data();
             document.getElementById("model").textContent = data.brand + " - "+ data.model || "";
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
+			const pay = data.pay ?? 0;
 			const table = document.getElementById("vehicleTable");
             table.innerHTML = "";
             addBillRow(table, "Service Date", data.date || " ");
             addBillRow(table, "Invoice Number", data.billNo || " ");
             addBillRow(table, "Odometer", data.onKm.toLocaleString("en-IN") || " ");
             addBillRow(table, "Bill Amount", `${formatAmount(data.bill)}`);
-            addBillRow(table, "Paid ", `${formatAmount(data.pay)}`);
-            
+            addBillRow(table, "Paid",  pay > 0  ? `${formatAmount(pay)} ${getPaymentMode(data.paymentMode)}` : "--");
         } else {
             alert("Service document not found");
         }
@@ -263,4 +258,20 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error(error));
 });
+
+function formatAmount(amount) {
+    return "₹" + Number(amount ?? 0).toLocaleString("en-IN");
+}
+function getPaymentMode(mode) {
+    switch (mode ?? -1) {
+        case 0:
+            return "(Cash)";
+        case 1:
+            return "(Bank)";
+        case 2:
+            return "(UPI)";
+        default:
+            return "";
+    }
+}
 
