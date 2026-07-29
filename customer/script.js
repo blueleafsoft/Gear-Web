@@ -30,7 +30,7 @@ async function getuser(customer) {
 		let credit = Math.abs(customer.Credit);
         if (customer.Credit > 0) {
 			document.getElementById("amountTitle").textContent = "Credit";
-			document.getElementById("creditText").textContent = `₹${credit || 0}`;
+			document.getElementById("dueText").textContent = `₹${credit || 0}`;
         } else {
 			document.getElementById("amountTitle").textContent ="Total Due";
 			document.getElementById("dueText").textContent = `₹${credit || 0}`;
