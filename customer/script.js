@@ -28,7 +28,7 @@ async function getuser(customer) {
         document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
 
 		let credit = Math.abs(customer.Credit);
-        if (customer.Credit > 0) {
+        if (customer.Credit < 0) {
 			document.getElementById("amountTitle").textContent = "Credit";
 			document.getElementById("dueText").textContent = `₹${credit || 0}`;
         } else {
@@ -96,7 +96,7 @@ async function getVehicleList(customerId) {
 
             let credit = bill - pay;
             let balance = pay - bill;
-            let isCredit = bill > pay;
+            let isCredit = bill < pay;
 
             let htmlContent;
 			if (isPaid) {
