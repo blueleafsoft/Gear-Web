@@ -111,7 +111,7 @@ async function getVehicleList(customerId) {
                 <div class="horizontal" style="width:100%;">
                     <div class="left-bar"></div>
                     <div class="icon">
-                        <span class="material-icons" style="font-size:42px;">directions_car</span>
+                        <span class="material-icons" translate="no" style="font-size:42px;">directions_car</span>
                     </div>
                     <div class="vertical">
                         <h4>${title}</h4>
@@ -194,7 +194,7 @@ async function getSparesList(id) {
 		   <div class="adapter">
 		   <div class="horizontal">
                <div class="icon" style="width: 42px; height: 42px;">
-                <span class="material-icons" style="font-size: 24px;">handyman</span>
+                <span class="material-icons" translate="no" style="font-size: 24px;">handyman</span>
             </div>
         <div class="vertical">
           <h4>${item.desc}</h4>
