@@ -7,78 +7,78 @@
     <link rel="stylesheet" href="../style.css">
   </head>
   <body style="width: 100%; max-width: 720px;">
-    
-    
 
-      
+
+
+
     <div id="loadingScreen">
       <div class="loader"></div>
       <p>Loading...</p>
     </div>
-      
-      
+
+
     <div class="content" id="content" style="display:none;">
 
-    <div class="horizontal">
-      <div class="icon-medium">
-        <span class="material-icons" style="font-size: 32px;">person</span>
-      </div>
-
-      <div class="vertical" style="margin-left: 10px;">
-        <h4 id="garageName"></h4>
-        <p id="garageDesc"></p>
-      </div>
-    </div>
-
- 	<div class="title-bar">
-      <div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
-        <div class="vertical" style="flex: 0; padding-left: 10px;">
-          <span class="material-icons" style="font-size: 16px;">person</span>
-          <span class="material-icons" style="font-size: 16px; margin-top: 5px;">location_on</span>
-        </div>
-        <div class="vertical" style="flex: 4; padding-left: 10px;">
-          <p style="font-size: 16px;" id="customerName" ></p>
-          <p id="customerAddress"></p>
-        </div>
-        
-        <div class="vertical" style="flex:1; align-items:flex-end; text-align:right; padding-right: 5px;">
-          <p id="amountTitle" style="font-size: 10px;"></p>
-          <div class="credit-text" style="font-size: 18px;" id="creditText"></div>
-          <div class="due-text" style="font-size: 18px;" id="dueText"></div>
-        </div>
-      </div>
-    </div>
-
-
-
-  	<div class="table-outline" style="margin-bottom: 10px;">
       <div class="horizontal">
-        <div class="icon" style="width: 42px; height: 42px;">
-          <span class="material-icons" style="font-size: 28px; margin: 0px;">directions_car</span>
+        <div class="icon-medium">
+          <span class="material-icons" translate="no" style="font-size: 32px;">person</span>
         </div>
-        <div class="vertical"style="margin-left: 10px;">
-          <p id="model" style="font-size: 14px;"></p>
-          <p id="vehicleNo"style="font-size: 14px;"></p>
+
+        <div class="vertical" style="margin-left: 10px;">
+          <h4 id="garageName"></h4>
+          <p id="garageDesc"></p>
         </div>
       </div>
-      <div class="divider-horizontal"></div>
-      <table id="vehicleTable" class="bill-table"></table>
-    </div>
-    
+
+      <div class="title-bar">
+        <div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
+          <div class="vertical" style="flex: 0; padding-left: 10px;">
+            <span class="material-icons" translate="no" style="font-size: 16px;">person</span>
+            <span class="material-icons" translate="no" style="font-size: 16px; margin-top: 5px;">location_on</span>
+          </div>
+          <div class="vertical" style="flex: 4; padding-left: 10px;">
+            <p style="font-size: 16px;" id="customerName" ></p>
+            <p id="customerAddress"></p>
+          </div>
+
+          <div class="vertical" style="flex:1; align-items:flex-end; text-align:right; padding-right: 5px;">
+            <p id="amountTitle" style="font-size: 10px;"></p>
+            <div class="credit-text" style="font-size: 18px;" id="creditText"></div>
+            <div class="due-text" style="font-size: 18px;" id="dueText"></div>
+          </div>
+        </div>
+      </div>
 
 
-    <div class="title-bar">
-      <h4>Spares And Service</h4>
-  	</div>
 
-    <div id="serviceList"></div>
+      <div class="table-outline" style="margin-bottom: 10px;">
+        <div class="horizontal">
+          <div class="icon" style="width: 42px; height: 42px;">
+            <span class="material-icons" translate="no" style="font-size: 28px; margin: 0px;">directions_car</span>
+          </div>
+          <div class="vertical"style="margin-left: 10px;">
+            <p id="model" style="font-size: 14px;"></p>
+            <p id="vehicleNo"style="font-size: 14px;"></p>
+          </div>
+        </div>
+        <div class="divider-horizontal"></div>
+        <table id="vehicleTable" class="bill-table"></table>
+      </div>
+
+
+
+      <div class="title-bar">
+        <h4>Spares And Service</h4>
+      </div>
+
+      <div id="serviceList"></div>
     </div>
 
     <script type="module" src="script.js"></script>
-    
-    
+
+
     <footer id="footerText"></footer>
     <script src="../script.js"></script>
-    
+
   </body>
 </html>

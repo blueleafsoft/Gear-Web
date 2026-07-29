@@ -321,11 +321,8 @@ button:hover {
     pointer-events: none;
 }
 .service-item .adapter {
- 
    pointer-events: none;
- 
    -webkit-tap-highlight-color: transparent;
-
 }
 
 
