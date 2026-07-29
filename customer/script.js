@@ -146,7 +146,7 @@ async function getVehicleData(id) {
 			const table = document.getElementById("vehicleTable");
             table.innerHTML = "";
             addBillRow(table, "Service Date", data.date || " ");
-            addBillRow(table, "Invoice Number", data.billNo || " ");
+            addBillRow(table, "Bill Number", data.billNo || " ");
             addBillRow(table, "Odometer", data.onKm.toLocaleString("en-IN") || " ");
             addBillRow(table, "Bill Amount", `${formatAmount(data.bill)}`);
             addBillRow(table, "Paid",  pay > 0  ? `${formatAmount(pay)} ${getPaymentMode(data.paymentMode)}` : "--");
