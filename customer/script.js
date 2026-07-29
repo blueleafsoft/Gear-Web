@@ -15,6 +15,8 @@ async function getuser(customer) {
     const ref = doc(db, "users", uid);
     const snap = await getDoc(ref);
 
+	 
+
     if (snap.exists()) {
         const user = snap.data();
 		//alert(JSON.stringify(user));
@@ -24,6 +26,13 @@ async function getuser(customer) {
 
         document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
         document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
+
+		let credit = Math.abs(customer.credit);
+        if (customer.credit > 0) {
+		   document.getElementById("creditText").textContent = `₹${credit || 0}`;
+        } else {
+           document.getElementById("balanceText").textContent = `₹${credit || 0}`;
+	    }
     }
 }
 
