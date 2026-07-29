@@ -320,6 +320,15 @@ button:hover {
 .service-item {
     pointer-events: none;
 }
+.service-item .adapter {
+ 
+   pointer-events: none;
+ 
+   -webkit-tap-highlight-color: transparent;
+
+}
+
+
 .left-bar{
     background: var(--md-sys-color-on-primary-fixed-variant);
     width:5px;
