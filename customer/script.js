@@ -30,7 +30,7 @@ async function getuser(customer) {
         document.getElementById("customerName").textContent = customer.Name || "Name Not Found";
         document.getElementById("customerAddress").textContent = customer.Address || "Address Not Found";
 
-		let credit = Math.abs(customer.Credit)+108090;
+		let credit = Math.abs(customer.Credit);
         if (customer.Credit < 0) {
 			document.getElementById("amountTitle").textContent = "Credit";
 			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
@@ -149,11 +149,11 @@ async function getVehicleData(id) {
 			document.getElementById("vehicleNo").textContent = data.vehicleNo || "";
 			const table = document.getElementById("vehicleTable");
             table.innerHTML = "";
-            addBillRow(table, "Date", data.date || "");
-            addBillRow(table, "Bill No", data.billNo || "");
-            addBillRow(table, "On KM", data.onKm || "");
-            addBillRow(table, "Bill", `₹${data.bill || 0}`);
-            addBillRow(table, "Pay", `₹${data.pay || 0}`);
+            addBillRow(table, "Service Date", data.date || " ");
+            addBillRow(table, "Invoice Number", data.billNo || " ");
+            addBillRow(table, "Odometer", data.onKm.toLocaleString("en-IN") || " ");
+            addBillRow(table, "Bill Amount", `${formatAmount(data.bill)}`);
+            addBillRow(table, "Paid ", `${formatAmount(data.pay)}`);
             
         } else {
             alert("Service document not found");
@@ -203,10 +203,10 @@ async function getSparesList(id) {
             </div>
         <div class="vertical">
           <h4>${item.desc}</h4>
-          <p>Rate : ₹${item.rate} | Qty : ${item.qty}</p>
+          <p>Rate : ${formatAmount(item.rate)} | Qty : ${item.qty}</p>
         </div>
            <div style="padding-right: 10px;">
-               <p>₹${total}</p>
+               <p>${formatAmount(total)}</p>
             </div>
 		</div>
       </div>`;
