@@ -28,7 +28,7 @@ async function getuser(customer) {
 		let credit = Math.abs(customer.Credit);
         if (customer.Credit < 0) {
 			document.getElementById("amountTitle").textContent = "Credit";
-			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
+			document.getElementById("creditText").textContent = `${formatAmount(credit)}`;
         } else {
 			document.getElementById("amountTitle").textContent ="Total Due";
 			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
@@ -264,13 +264,15 @@ function formatAmount(amount) {
 }
 function getPaymentMode(mode) {
     switch (mode ?? -1) {
-        case 0:
-            return "(Cash)";
         case 1:
-            return "(Bank)";
+            return "(Cash)";
         case 2:
+            return "(Bank)";
+        case 3:
             return "(UPI)";
-        default:
+		case 4:
+			return "(Card)";
+		default:
             return "";
     }
 }
