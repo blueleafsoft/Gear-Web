@@ -94,17 +94,16 @@ async function getVehicleList(customerId) {
             let pay = item.pay || 0;
             let isPaid = bill == pay;
 
-            let credit = bill - pay;
-            let balance = pay - bill;
+            let credit = Mat.abs(bill - pay);
             let isCredit = bill < pay;
 
             let htmlContent;
 			if (isPaid) {
-               htmlContent = `<p class="balance-text">Paid : ₹${pay}</p>`;
+               htmlContent = `<p>Paid : ₹${pay}</p>`;
             } else if (isCredit) {
                htmlContent = `<p class="credit-text">Credit : ₹${credit}</p>`;
             } else {
-               htmlContent = `<p class="balance-text">Balance : ₹${balance}</p>`;
+               htmlContent = `<p class="due-text">Due : ₹${credit}</p>`;
             }
             
             const card = document.createElement("div");
