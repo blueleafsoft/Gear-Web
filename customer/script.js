@@ -190,10 +190,11 @@ async function getSparesList(id) {
             //console.log(itemId, item);
 			let total = item.total || 0;
             const card = document.createElement("div");
-           card.className = "adapter";
+           card.className = "service-item";
     
            card.innerHTML = `
-              <div class="horizontal">
+		   <div class="adapter">
+		   <div class="horizontal">
                <div class="icon" style="width: 42px; height: 42px;">
                 <span class="material-icons" style="font-size: 24px;">handyman</span>
             </div>
@@ -204,6 +205,7 @@ async function getSparesList(id) {
            <div style="padding-right: 10px;">
                <p>₹${total}</p>
             </div>
+		</div>
       </div>`;
     
     sparesList.appendChild(card);
