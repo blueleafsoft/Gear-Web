@@ -121,7 +121,7 @@ async function getVehicleList(customerId) {
                 <div class="horizontal" style="width:100%;">
                     <div class="left-bar"></div>
                     <div class="icon">
-                        <span translate="no" style="font-size:42px;">${getCarIcon().outerHTML}</span>
+                        <span translate="no" style="font-size:52px;">${getCarIcon().outerHTML}</span>
                     </div>
                     <div class="vertical">
                         <h4>${title}</h4>
@@ -312,6 +312,7 @@ function getCarIcon() {
     svg.setAttribute("height", "42");
 
     svg.innerHTML = `
+	<g transform="translate(-1.5, 1.5)">
     <path
 		fill="var(--md-sys-color-outline)"
 		d="M16.24,16.11C16.87,16.13,17.50,16.15,17.84,16.06C18.17,15.96,18.21,15.75,18.25,15.90C18.28,16.05,18.30,16.56,18.25,16.82C18.19,17.09,18.07,17.11,17.73,17.12C17.39,17.14,16.84,17.14,16.56,17.12C16.27,17.10,16.25,17.05,16.24,16.88C16.23,16.71,16.24,16.41,16.24,16.11z"/>
@@ -333,6 +334,7 @@ function getCarIcon() {
 	<path
 		fill="var(--md-sys-color-outline)"
 		d="M14.46,8.48C14.22,8.50,13.97,8.52,13.76,8.71C13.54,8.90,13.36,9.25,13.48,9.47C13.60,9.68,14.04,9.76,14.46,9.76C14.88,9.76,15.29,9.68,15.43,9.47C15.56,9.25,15.42,8.90,15.22,8.71C15.01,8.52,14.73,8.50,14.46,8.48zM9.60,8.48C9.87,8.50,10.15,8.52,10.35,8.71C10.56,8.89,10.70,9.24,10.57,9.46C10.43,9.68,10.02,9.78,9.59,9.78C9.17,9.78,8.74,9.69,8.62,9.46C8.50,9.24,8.68,8.89,8.90,8.70C9.11,8.52,9.35,8.50,9.60,8.48z"/>
+		</g>
  `;
 
     return svg;
