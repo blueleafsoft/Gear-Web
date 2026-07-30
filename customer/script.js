@@ -147,6 +147,9 @@ async function getVehicleData(id) {
     try {
         const ref = doc(db, "Customers", token, "Workshop", id);
         const snap = await getDoc(ref);
+		const carIcon = document.getElementById("carIcon");
+		
+		
 
         if (snap.exists()) {
             const data = snap.data();
@@ -160,6 +163,10 @@ async function getVehicleData(id) {
             addBillRow(table, "Odometer", data.onKm.toLocaleString("en-IN") || " ");
             addBillRow(table, "Bill Amount", `${formatAmount(data.bill)}`);
             addBillRow(table, "Paid",  pay > 0  ? `${formatAmount(pay)} ${getPaymentMode(data.paymentMode)}` : "--");
+
+            if(carIcon){
+			   carIcon.appendChild(getCarIcon());
+		    }
         } else {
             showNoData("Service document not found");
         }
@@ -308,8 +315,8 @@ function getCarIcon() {
 
     const svg = document.createElementNS(NS, "svg");
     svg.setAttribute("viewBox", "0 0 24 24");
-    svg.setAttribute("width", "42");
-    svg.setAttribute("height", "42");
+    svg.setAttribute("width", "56");
+    svg.setAttribute("height", "56");
 
     svg.innerHTML = `
 	<g transform="translate(-1.5, 1.5)">
