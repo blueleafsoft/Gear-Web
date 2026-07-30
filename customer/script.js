@@ -210,8 +210,8 @@ async function getSparesList(id) {
           <h4>${item.desc}</h4>
           <p>Rate : ${formatAmount(item.rate)} | Qty : ${item.qty}</p>
         </div>
-           <div class="amount" style="padding-right: 10px; margin: 0px; font-weight: normal;">
-               <p>${formatAmount(total)}</p>
+           <div class="amount" style="padding-right: 10px; margin: 0px;">
+               <p style="font-weight: normal;">${formatAmount(total)}</p>
             </div>
 		</div>
       </div>`;
