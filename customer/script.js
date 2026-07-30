@@ -286,4 +286,16 @@ function getPaymentMode(mode) {
             return "";
     }
 }
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
+function updateThemeColor() {
+  const color = getComputedStyle(document.documentElement)
+    .getPropertyValue('--md-sys-color-background').trim();
+  themeColorMeta.setAttribute('content', color);
+}
+
+updateThemeColor();
+
+// Update when system theme changes
+window.matchMedia('(prefers-color-scheme: dark)')
+  .addEventListener('change', updateThemeColor);
