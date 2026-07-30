@@ -61,8 +61,8 @@ https://gearapp.in
 
 ## 📄 Documentation
 
-- Privacy Policy: https://gearapp.in/privacy.html
-- Terms & Conditions: https://gearapp.in/terms.html
+- Privacy Policy: https://gearapp.in/privacy-policy.html
+- Terms & Conditions: https://gearapp.in/terms-of-services.html
 
 ## 📧 Contact
 
@@ -72,4 +72,4 @@ Website: https://gearapp.in
 
 ---
 
-Made with ❤️ by **BlueLeaf Soft**
+Made with ❤️ by **blueleafsoft**
