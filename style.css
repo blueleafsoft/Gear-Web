@@ -339,7 +339,7 @@ button:hover {
 
 
 .left-bar{
-    background: var(--md-sys-color-on-primary-fixed-variant);
+    background: var(--md-sys-color-on-secondary-fixed-variant);
     width:5px;
     align-self:stretch;
 }

@@ -3,64 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00040D">
     <title>Customer Service Details</title>
 
     <link rel="stylesheet" href="../style.css">
   </head>
   <body style="width: 100%; max-width: 720px;">
-    
-    
-    
+
+
+
     <div id="loadingScreen" >
       <div class="loader"></div>
       <p>Loading...</p>
     </div>
-
-  	<div class="content" id="content" style="display:none;">
-
-    <div class="horizontal">
-      <div class="icon-medium">
-        <span class="material-icons" translate="no" style="font-size: 32px;">person</span>
-      </div>
-
-      <div class="vertical" style="margin-left: 10px;">
-        <h4 id="garageName"></h4>
-        <p id="garageDesc"></p>
-      </div>
+    <div id="noData" style="display:none;">
     </div>
 
-    <div class="title-bar">
-      <h4>Vehicle Service History</h4>
-    </div>
-
-    <div class="title-bar">
-      <div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
-        <div class="vertical" style="flex: 0; padding-left: 10px;">
-          <span class="material-icons" translate="no"style="font-size: 16px;">person</span>
-          <span class="material-icons" translate="no"style="font-size: 16px; margin-top: 5px;">location_on</span>
+    <div class="content" id="content" style="display:none;">
+      <div class="horizontal">
+        <div class="icon-medium">
+          <span class="material-icons" translate="no" style="font-size: 32px;">person</span>
         </div>
 
-        <div class="vertical" style="flex: 4; padding-left: 10px;">
-          <p style="font-size: 16px;" id="customerName"></p>
-          <p id="customerAddress"></p>
-        </div>
-
-        <div class="vertical" style="flex:1; align-items:flex-end; text-align:right; padding-right: 5px;">
-          <p id="amountTitle" style="font-size: 10px;"></p>
-          <div class="credit-text" style="font-size: 18px;" id="creditText"></div>
-          <div class="due-text" style="font-size: 18px;" id="dueText"></div>
+        <div class="vertical" style="margin-left: 10px;">
+          <h4 id="garageName"></h4>
+          <p id="garageDesc"></p>
         </div>
       </div>
+
+      <div class="title-bar">
+        <div style="display: flex; width: 100%; margin-bottom: 10px; align-items: center;">
+          <div class="vertical" style="flex: 0; padding-left: 10px;">
+            <span class="material-icons" translate="no"style="font-size: 16px;">person</span>
+            <span class="material-icons" translate="no"style="font-size: 16px; margin-top: 5px;">location_on</span>
+          </div>
+
+          <div class="vertical" style="flex: 4; padding-left: 10px;">
+            <p style="font-size: 16px;" id="customerName"></p>
+            <p id="customerAddress"></p>
+          </div>
+
+          <div class="vertical" style="flex:1; align-items:flex-end; text-align:right; padding-right: 5px;">
+            <p id="amountTitle" style="font-size: 10px;"></p>
+            <div class="credit-text" style="font-size: 18px;" id="creditText"></div>
+            <div class="due-text" style="font-size: 18px;" id="dueText"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="title-bar">
+        <h4>Vehicle Service History</h4>
+      </div>
+
+      <div id="vehicleList"></div>
+
     </div>
 
-
-
-    <div id="vehicleList"></div>
-    
-    </div>
-    
     <footer id="footerText" style="margin-top: 40px"></footer>
     <script type="module" src="script.js"></script>
-    
+
   </body>
 </html>
