@@ -121,7 +121,7 @@ async function getVehicleList(customerId) {
                 <div class="horizontal" style="width:100%;">
                     <div class="left-bar"></div>
                     <div class="icon">
-                        <span translate="no" style="display:inline-flex;width:58px;height:58px;align-items:center;justify-content:center;">${getCarIcon().outerHTML}</span>
+                       <span class="material-icons" translate="no" style="font-size:42px;">directions_car</span>
                     </div>
                     <div class="vertical">
                         <h4>${title}</h4>
@@ -165,7 +165,7 @@ async function getVehicleData(id) {
             addBillRow(table, "Paid",  pay > 0  ? `${formatAmount(pay)} ${getPaymentMode(data.paymentMode)}` : "--");
 
             if(carIcon){
-			   carIcon.appendChild(getCarIcon());
+			   //carIcon.appendChild(getCarIcon());
 		    }
         } else {
             showNoData("Service document not found");
