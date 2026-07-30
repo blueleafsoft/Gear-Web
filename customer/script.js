@@ -308,8 +308,8 @@ function getCarIcon() {
 
     const svg = document.createElementNS(NS, "svg");
     svg.setAttribute("viewBox", "0 0 24 24");
-    svg.setAttribute("width", "24");
-    svg.setAttribute("height", "24");
+    svg.setAttribute("width", "42");
+    svg.setAttribute("height", "42");
 
     svg.innerHTML = `
     <path
