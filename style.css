@@ -283,15 +283,27 @@ button:hover {
 }
 
 .play-btn {
-    display: block;
-    margin-top: 30px;
-    background: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+    display: inline-block;
     text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: bold;
 }
+
+
+.play-btn img {
+ 
+  width: 180px;
+ 
+  height: auto;
+
+}
+
+
+.play-btn:hover {
+ 
+  transform: scale(1.05);
+
+}
+
+
 
 #vehicleList{
     display:flex;
