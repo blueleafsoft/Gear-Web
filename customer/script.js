@@ -7,7 +7,16 @@ const id = params.get("id");
 
 const vehicleList = document.getElementById("vehicleList");
 const sparesList = document.getElementById("serviceList");
+const noData = document.getElementById("noData");
 
+function showNoData(message = "No data available") {
+    noData.textContent = message;
+    noData.style.display = "block";
+}
+
+function hideNoData() {
+    noData.style.display = "none";
+}
 
 async function getuser(customer) {
     const uid = customer.User_Id;
@@ -17,7 +26,6 @@ async function getuser(customer) {
 
     if (snap.exists()) {
         const user = snap.data();
-		//alert(JSON.stringify(user));
 						
         document.getElementById("garageName").textContent = user.name || "";
         document.getElementById("garageDesc").textContent = user.user_description || "";
@@ -33,14 +41,18 @@ async function getuser(customer) {
 			document.getElementById("amountTitle").textContent ="Total Due";
 			document.getElementById("dueText").textContent = `${formatAmount(credit)}`;
 	    }
-    }
+    }else{
+		showNoData();
+	}
 }
 
 
 async function getCustomerDetails() {
     if (!token) {
         console.error("Token Not Found");
-        return;
+		loading.remove();
+		showNoData("Invalid Url");
+		return;
     }
 
     try {
@@ -63,13 +75,11 @@ async function getCustomerDetails() {
         document.getElementById("content").style.display = "block";
 		} else {
 		  loading.remove();
-          document.getElementById("content").style.display = "block";
-          document.getElementById("customerName").textContent = "Customer Not Found";
-          document.getElementById("customerAddress").textContent = "";
+          showNoData();
         }
     } catch (error) {
         console.error("Error fetching document:", error);
-		alert(`Customer Data\n${error.name}\n${error.message}`);
+		//alert(`Customer Data\n${error.name}\n${error.message}`);
     }
 }
 
@@ -130,7 +140,7 @@ async function getVehicleList(customerId) {
         });
     } catch (error) {
         console.error("Error fetching vehicles:", error);
-		alert(`Vehicle List\n${error.name}\n${error.message}`);
+		//alert(`Vehicle List\n${error.name}\n${error.message}`);
     }
 }
 async function getVehicleData(id) {
@@ -151,11 +161,11 @@ async function getVehicleData(id) {
             addBillRow(table, "Bill Amount", `${formatAmount(data.bill)}`);
             addBillRow(table, "Paid",  pay > 0  ? `${formatAmount(pay)} ${getPaymentMode(data.paymentMode)}` : "--");
         } else {
-            alert("Service document not found");
+            showNoData("Service document not found");
         }
     } catch (error) {
         console.error("Error fetching vehicle data:", error);
-        alert(`Vehicle Data\n${error.name}\n${error.message}`);
+        //alert(`Vehicle Data\n${error.name}\n${error.message}`);
     }
 }
 function addBillRow(table, label, value) {
@@ -176,7 +186,7 @@ async function getSparesList(id) {
         const snap = await getDoc(ref);
         //alert(snap.exists());
         if (!snap.exists()) {
-            alert("Spares document not found");
+            showNoData("Spares document not found");
             return;
         }
 
@@ -200,7 +210,7 @@ async function getSparesList(id) {
           <h4>${item.desc}</h4>
           <p>Rate : ${formatAmount(item.rate)} | Qty : ${item.qty}</p>
         </div>
-           <div style="padding-right: 10px;">
+           <div class="amount" style="padding-right: 10px;">
                <p>${formatAmount(total)}</p>
             </div>
 		</div>
