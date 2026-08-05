@@ -40,9 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (footer) {
                 //footer.textContent = data.footer.copyright;
                 footer.innerHTML = `
+
+               <div class="horizontal">
+                <img src="bs_logo.svg" style="margin-left: 5px; margin-right: 5px;" alt="GEAR Logo" class="logo">
                   <div class="vertical">
                     <p>${data.footer.copyright}</p>
                     <p>${data.footer.desc}</p>
+                   </div>
                    </div>
                 `;
             }
