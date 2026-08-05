@@ -37,8 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Footer
             const footer = document.getElementById("footerText");
-            if (footer) footer.textContent = data.footer.copyright;
-
+            if (footer) {
+                //footer.textContent = data.footer.copyright;
+                footer.innerHTML = `
+                  <div class="vertical">
+                    <p>${data.footer.copyright}</p>
+                    <p>${data.footer.desc}</p>
+                   </div>
+                `;
+            }
         })
         .catch(error => console.error(error));
 });
