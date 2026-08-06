@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 //footer.textContent = data.footer.copyright;
                 footer.innerHTML = `
                <div class="horizontal">
-                <img src="../bs_logo.svg" style="width: 24px; height: 24px; margin-left: 5px; margin-right: 5px;" alt="GEAR Logo" class="logo">
+                <img src="../bs_logo.svg" style="width: 24px; height: 24px; margin-left: 5px; margin-right: 5px; align-items: center; " alt="GEAR Logo" class="logo">
                   <div class="vertical">
                     <p>${data.footer.copyright}</p>
                    </div>
